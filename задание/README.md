@@ -20,7 +20,7 @@ LOG_LEVEL=info
 Проект запускается командой `docker-compose up` делать это из папки `\zadanie-6105>` 
 так же что бы проверить работоспособность предоставляю свои запросы из postmen, тестировал там, при желании можно через curl 
 
-POST
+```POST
 NewTender
 http://localhost:8080/api/tenders/new
 Body
@@ -31,15 +31,15 @@ json
     "description": "This is a new tender",
     "creator_id": 1,
     "organization_id": 1
-}
+}```
 
 
-GET
+```GET
 getALLtenders
-http://localhost:8080/api/tenders
+http://localhost:8080/api/tenders```
 
 
-POST
+```POST
 createUser
 http://localhost:8080/api/users/new
 Body
@@ -49,9 +49,9 @@ json
     "username": "user1",
     "first_name": "Dima",
     "last_name": "Varauyn"
-}
+}```
 
-POST
+```POST
 newOrganization
 http://localhost:8080/api/organizations/new
 Body
@@ -61,16 +61,16 @@ json
     "name": "Organization Name",
     "description": "Organization Description",
     "type": "Organization Type"
-}
-
+}```
+```
 GET
 getTendersByUsername
 http://localhost:8080/api/tenders/my?username=user1
 Query Params
 username
-user1
+user1```
 
-PATCH
+```PATCH
 editTender
 http://localhost:8080/api/tenders/1/edit
 Body
@@ -83,10 +83,10 @@ json
     "organization_id": 1,
     "creator_id": 1,
     "version": 2
-}
+}```
 
 
-POST
+```POST
 bidNew
 http://localhost:8080/api/bids/new
 Body
@@ -100,22 +100,22 @@ json
     "organization_id": 1,
     "creator_username": "user1",
     "version": 1
-}
+}```
 
-GET
+```GET
 getBid
 http://localhost:8080/api/bids/my?username=user1
 Query Params
 username
-user1
+user1```
 
-
+```
 GET
 getBidByID
-http://localhost:8080/api/bids/tender/1/list
+http://localhost:8080/api/bids/tender/1/list```
 
 
-PATCH
+```PATCH
 editBid
 http://localhost:8080/api/bids/1/edit
 Body
@@ -129,14 +129,14 @@ json
     "organization_id": 1,
     "creator_username": "user1",
     "version": 2
-}
+}```
 
 
-PUT
+```PUT
 rollabackBid
-http://localhost:8080/api/bids/1/rollback/1
+http://localhost:8080/api/bids/1/rollback/1```
 
-POST
+```POST
 newDecision
 http://localhost:8080/api/decisions/new
 Body
@@ -146,13 +146,13 @@ json
     "bid_id": 1,
     "organization_id": 1,
     "decision": "Approved"
-}
+}```
 
-GET
+```GET
 bidApprove
-http://localhost:8080/api/bids/approve/1
+http://localhost:8080/api/bids/approve/1```
 
-POST
+```POST
 newReviews
 http://localhost:8080/api/reviews/new
 Body
@@ -166,6 +166,7 @@ json
 GET
 getReview
 http://localhost:8080/api/bids/1/reviews
+```
 
 
 
