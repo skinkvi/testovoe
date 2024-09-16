@@ -19,63 +19,68 @@ LOG_LEVEL=info
 
 Проект запускается командой `docker-compose up` делать это из папки `\zadanie-6105>` 
 так же что бы проверить работоспособность предоставляю свои запросы из postmen, тестировал там, при желании можно через curl 
+Конечно! Вот как можно красиво оформить эти запросы для README:
 
-`POST
-NewTender
-http://localhost:8080/api/tenders/new
-Body
-raw (json)
-json
+
+## API Endpoints
+
+### Create New Tender
+
+**POST** `http://localhost:8080/api/tenders/new`
+
+**Body**
+```json
 {
     "name": "New Tender",
     "description": "This is a new tender",
     "creator_id": 1,
     "organization_id": 1
-}`
+}
+```
 
+### Get All Tenders
 
-`GET
-getALLtenders
-http://localhost:8080/api/tenders`
+**GET** `http://localhost:8080/api/tenders`
 
+### Create New User
 
-`POST
-createUser
-http://localhost:8080/api/users/new
-Body
-raw (json)
-json
+**POST** `http://localhost:8080/api/users/new`
+
+**Body**
+```json
 {
     "username": "user1",
     "first_name": "Dima",
     "last_name": "Varauyn"
-}`
+}
+```
 
-`POST
-newOrganization
-http://localhost:8080/api/organizations/new
-Body
-raw (json)
-json
+### Create New Organization
+
+**POST** `http://localhost:8080/api/organizations/new`
+
+**Body**
+```json
 {
     "name": "Organization Name",
     "description": "Organization Description",
     "type": "Organization Type"
-}`
-`
-GET
-getTendersByUsername
-http://localhost:8080/api/tenders/my?username=user1
-Query Params
-username
-user1`
+}
+```
 
-`PATCH
-editTender
-http://localhost:8080/api/tenders/1/edit
-Body
-raw (json)
-json
+### Get Tenders by Username
+
+**GET** `http://localhost:8080/api/tenders/my?username=user1`
+
+**Query Params**
+- `username`: `user1`
+
+### Edit Tender
+
+**PATCH** `http://localhost:8080/api/tenders/1/edit`
+
+**Body**
+```json
 {
     "name": "Updated Tender",
     "description": "This is an updated tender",
@@ -83,15 +88,15 @@ json
     "organization_id": 1,
     "creator_id": 1,
     "version": 2
-}`
+}
+```
 
+### Create New Bid
 
-`POST
-bidNew
-http://localhost:8080/api/bids/new
-Body
-raw (json)
-json
+**POST** `http://localhost:8080/api/bids/new`
+
+**Body**
+```json
 {
     "name": "New Bid",
     "description": "This is a new bid",
@@ -100,27 +105,26 @@ json
     "organization_id": 1,
     "creator_username": "user1",
     "version": 1
-}`
+}
+```
 
-`GET
-getBid
-http://localhost:8080/api/bids/my?username=user1
-Query Params
-username
-user1`
+### Get Bid by Username
 
-`
-GET
-getBidByID
-http://localhost:8080/api/bids/tender/1/list`
+**GET** `http://localhost:8080/api/bids/my?username=user1`
 
+**Query Params**
+- `username`: `user1`
 
-`PATCH
-editBid
-http://localhost:8080/api/bids/1/edit
-Body
-raw (json)
-json
+### Get Bid by ID
+
+**GET** `http://localhost:8080/api/bids/tender/1/list`
+
+### Edit Bid
+
+**PATCH** `http://localhost:8080/api/bids/1/edit`
+
+**Body**
+```json
 {
     "name": "Updated Bid",
     "description": "This is an updated bid",
@@ -129,45 +133,44 @@ json
     "organization_id": 1,
     "creator_username": "user1",
     "version": 2
-}`
+}
+```
 
+### Rollback Bid
 
-`PUT
-rollabackBid
-http://localhost:8080/api/bids/1/rollback/1`
+**PUT** `http://localhost:8080/api/bids/1/rollback/1`
 
-`POST
-newDecision
-http://localhost:8080/api/decisions/new
-Body
-raw (json)
-json
+### Create New Decision
+
+**POST** `http://localhost:8080/api/decisions/new`
+
+**Body**
+```json
 {
     "bid_id": 1,
     "organization_id": 1,
     "decision": "Approved"
-}`
+}
+```
 
-`GET
-bidApprove
-http://localhost:8080/api/bids/approve/1`
+### Approve Bid
 
-`POST
-newReviews
-http://localhost:8080/api/reviews/new
-Body
-raw (json)
-json
+**GET** `http://localhost:8080/api/bids/approve/1`
+
+### Create New Review
+
+**POST** `http://localhost:8080/api/reviews/new`
+
+**Body**
+```json
 {
     "bid_id": 1,
     "organization_id": 1,
     "review": "This is a review"
 }
-GET
-getReview
-http://localhost:8080/api/bids/1/reviews
-`
+```
 
+### Get Review
 
-
-
+**GET** `http://localhost:8080/api/bids/1/reviews`
+```
